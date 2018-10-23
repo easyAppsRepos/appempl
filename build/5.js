@@ -1,0 +1,265 @@
+webpackJsonp([5],{
+
+/***/ 293:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalendarioPageModule", function() { return CalendarioPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calendario__ = __webpack_require__(432);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic2_calendar__ = __webpack_require__(201);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var CalendarioPageModule = /** @class */ (function () {
+    function CalendarioPageModule() {
+    }
+    CalendarioPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__calendario__["a" /* CalendarioPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__calendario__["a" /* CalendarioPage */]),
+                __WEBPACK_IMPORTED_MODULE_3_ionic2_calendar__["a" /* NgCalendarModule */],
+            ],
+        })
+    ], CalendarioPageModule);
+    return CalendarioPageModule;
+}());
+
+//# sourceMappingURL=calendario.module.js.map
+
+/***/ }),
+
+/***/ 432:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarioPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(102);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the CalendarioPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var CalendarioPage = /** @class */ (function () {
+    function CalendarioPage(navCtrl, cdr, restProvider, loadingCtrl, storage) {
+        this.navCtrl = navCtrl;
+        this.cdr = cdr;
+        this.restProvider = restProvider;
+        this.loadingCtrl = loadingCtrl;
+        this.storage = storage;
+        this.dataUser = {};
+        this.calendar = {
+            locale: 'es-MX',
+            startingDayWeek: '1',
+            mode: 'day',
+            currentDate: new Date(),
+            dateFormatter: {
+                formatMonthViewDay: function (date) {
+                    return date.getDate().toString();
+                },
+                formatMonthViewDayHeader: function (date) {
+                    return 'MonMH';
+                },
+                formatMonthViewTitle: function (date) {
+                    return 'testMT';
+                },
+                formatWeekViewDayHeader: function (date) {
+                    return 'MonWH';
+                },
+                formatWeekViewTitle: function (date) {
+                    return 'testWT';
+                },
+                formatWeekViewHourColumn: function (date) {
+                    return 'testWH';
+                },
+                formatDayViewHourColumn: function (date) {
+                    return 'testDH';
+                },
+                formatDayViewTitle: function (date) {
+                    return 'testDT';
+                }
+            }
+        };
+        this.markDisabled = function (date) {
+            var current = new Date();
+            current.setHours(0, 0, 0);
+            return date < current;
+        };
+    }
+    CalendarioPage.prototype.ionViewDidEnter = function () {
+        var _this = this;
+        this.storage.get('usr_tok_byae').then(function (result) {
+            if (result) {
+                _this.dataUser = result;
+                _this.loadEvents();
+                console.log(_this.dataUser);
+            }
+            else {
+                console.log('error-nologin');
+            }
+        });
+    };
+    /*
+    previousMonth() {
+        //this.calendar.currentDate = moment(this.calendar.currentDate).subtract(1, 'month').toDate();
+            var ff = new Date(this.calendar.currentDate.setMonth(this.calendar.currentDate.getMonth()-1));
+         this.calendar.currentDate =  ff;
+    }
+    
+    nextMonth() {
+    
+        
+        var ff = new Date(this.calendar.currentDate.setMonth(this.calendar.currentDate.getMonth()+1));
+         this.calendar.currentDate =  ff;
+    
+    }
+    */
+    CalendarioPage.prototype.loadEvents = function () {
+        // this.eventSource = this.createRandomEvents();
+        var _this = this;
+        var loading = this.loadingCtrl.create({ content: "Obteniendo Reservas..." });
+        loading.present();
+        this.restProvider.getEventosUserNC({ idEmpleado: this.dataUser.idEmpleado })
+            .then(function (data) {
+            _this.eventSource = data.map(function (item) {
+                var arrayTemp = item;
+                arrayTemp.title = item.nombreCliente;
+                var date1 = new Date(item.y, item.m - 1, item.d, item.h, item.min);
+                var date2 = new Date(item.y, item.m - 1, item.d, item.h2, (item.min2 - 2));
+                var date22 = new Date(item.y, item.m - 1, item.d, item.h2, (item.min2));
+                arrayTemp.startTime = date1;
+                arrayTemp.endTime = date2;
+                arrayTemp.endString = date22;
+                arrayTemp.allDay = false;
+                arrayTemp.servicio = item.nombreServicio;
+                //console.log(arrayTemp);
+                return arrayTemp;
+            });
+            loading.dismiss();
+        });
+    };
+    CalendarioPage.prototype.goDetalle = function (event) {
+        console.log(event);
+        this.navCtrl.push('DetalleReservaPage', { idCita: event.idCita });
+    };
+    CalendarioPage.prototype.showItems = function (item) {
+        console.log(item);
+        //return item.filter(e=>e.estado == 0).length;
+    };
+    CalendarioPage.prototype.onViewTitleChanged = function (title) {
+        this.viewTitle = title;
+    };
+    CalendarioPage.prototype.onEventSelected = function (event) {
+        console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
+    };
+    CalendarioPage.prototype.changeMode = function (mode) {
+        this.calendar.mode = mode;
+    };
+    CalendarioPage.prototype.today = function () {
+        this.calendar.currentDate = new Date();
+    };
+    CalendarioPage.prototype.onTimeSelected = function (ev) {
+        console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
+            (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);
+    };
+    CalendarioPage.prototype.onCurrentDateChanged = function (event) {
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+        event.setHours(0, 0, 0, 0);
+        this.isToday = today.getTime() === event.getTime();
+    };
+    CalendarioPage.prototype.createRandomEvents = function () {
+        var events = [];
+        for (var i = 0; i < 50; i += 1) {
+            var date = new Date();
+            var estado = Math.floor(Math.random() * 4) + 0;
+            var eventType = Math.floor(Math.random() * 2);
+            var startDay = Math.floor(Math.random() * 90) - 45;
+            var endDay = Math.floor(Math.random() * 2) + startDay;
+            var startTime;
+            var endTime;
+            if (false) {
+                startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
+                if (endDay === startDay) {
+                    endDay += 1;
+                }
+                endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
+                events.push({
+                    title: 'All Day - ' + i,
+                    startTime: startTime,
+                    endTime: endTime,
+                    allDay: true,
+                    servicio: 'Corte de Pelo',
+                    estado: estado,
+                    pendientes: Math.floor(Math.random() * 4) + 0
+                });
+            }
+            else {
+                var startMinute = Math.floor(Math.random() * 24 * 60);
+                var endMinute = Math.floor(Math.random() * 180) + startMinute;
+                startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
+                endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
+                events.push({
+                    title: 'Event - ' + i,
+                    startTime: startTime,
+                    endTime: endTime,
+                    allDay: false,
+                    estado: estado,
+                    servicio: 'Corte de Pelo',
+                    pendientes: Math.floor(Math.random() * 2) + 0
+                });
+            }
+        }
+        console.log(events);
+        return events;
+    };
+    CalendarioPage.prototype.onRangeChanged = function (ev) {
+        console.log('range changed: startTime: ' + ev.startTime + ', endTime: ' + ev.endTime);
+    };
+    CalendarioPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-calendario',template:/*ion-inline-start:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/pages/calendario/calendario.html"*/'<ion-header>\n    <ion-navbar color="header">\n  <ion-buttons left>\n      <button ion-button  menuToggle>\n         <ion-icon ios="ios-menu" md="md-menu"></ion-icon>\n     </button>\n</ion-buttons>\n\n        <ion-title style=\'padding: 0px !important\'>\n<!--            <ion-icon (click)=\'previousMonth()\' style=\'height: 39px;\n    width: 44px;\n    vertical-align: middle;\n    line-height: 33px;\' name="arrow-back"></ion-icon> -->\n        {{viewTitle}}\n<!--         <ion-icon (click)=\'nextMonth()\'  style=\'height: 39px;\n    width: 44px;\n    vertical-align: middle;\n    line-height: 33px;\' name="arrow-forward"></ion-icon> -->\n\n      </ion-title>\n\n         <ion-buttons right>\n\n   <!--              <button class=\'bWhite \' ion-button small [ngClass]=\'{"activeBtn":calendar.mode=="month"}\' (click)="changeMode(\'month\')">\n            mes\n        </button> -->\n\n             <button class=\'bWhite \' ion-button small [hidden]=\'calendar.mode=="month"\' (click)="changeMode(\'month\')">\n            mes\n        </button>\n\n        <button class=\'bWhite\' ion-button small [hidden]=\'calendar.mode=="day"\' (click)="changeMode(\'day\')">\n         dia\n        </button>\n\n    </ion-buttons>\n\n\n    </ion-navbar>\n</ion-header>\n<ion-content >\n\n<!-- <div>\n     \n            <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n            <button ion-button (click)="changeMode(\'month\')">M</button>\n            <button ion-button (click)="changeMode(\'week\')">W</button>\n            <button ion-button (click)="changeMode(\'day\')">D</button>\n            <button ion-button (click)="loadEvents()">Load Events</button>\n  \n\n</div> -->\n\n<!--  \nitems en el calendario\n[monthviewDisplayEventTemplate]="template"  -->\n\n\n\n <ng-template #template2 let-view="view" let-row="row" let-col="col" >\n            {{view.dates[row*7+col].label}}\n\n<!-- <span class="badge1" *ngIf=\'showItems(view.dates[row*7+col].events) > 0\'>{{showItems(view.dates[row*7+col].events)}}</span> -->\n<span class="badge1" *ngIf=\'view.dates[row*7+col].events[0]?.pendientes > 0\'>{{view.dates[row*7+col].events[0].pendientes}}</span>\n\n        </ng-template>\n\n        \n\n       \n\n\n\n        <ng-template #template let-showEventDetail="showEventDetail" let-selectedDate="selectedDate" let-noEventsLabel="noEventsLabel">\n            <ion-list class="event-detail-container" has-bouncing="false" *ngIf="showEventDetail" overflow-scroll="false">\n\n      \n\n                    <ion-item *ngIf="selectedDate?.events.length>0" \n                      style=\'padding-left: 0px !important;color: #999;\' \n                      style=\'    padding-left: 10px;\'>\n                    <div class="no-events-label">Reservaciones</div>\n                </ion-item>\n\n              <ion-item *ngIf="selectedDate?.events.length==0" \n              style=\'padding-left: 10px !important;color: #999;\'>\n                    <div class="no-events-label">No hay reservas</div>\n                </ion-item>\n\n\n    <div class=\'cardReserva\' *ngFor="let event of selectedDate?.events" (click)=\'goDetalle(event)\'>\n <ion-icon class=\'iconR\' name="arrow-forward"></ion-icon>\n    <div>\n        <div style="display: inline-block;    width: 100%;">\n        <div  class="fechaItem" \n        [ngClass]="{\'citaE3sb3\':event.estado == 3,\'citaE4sb3\':event.estado == 4, \'citaE2sb3\': event.estado == 2, \'citaE1sb3\':event.estado == 1, \'citaE0sb3\':event.estado == 0}">\n            <span class="spanCenter" style="color: #444;display: block; text-transform: uppercase;">{{event.startTime|date: \'MMM\'}}  </span>\n            <span class="spanCenter" style="    color: #444;display: block;font-size: 22px;">{{event.startTime|date: \'d\'}}</span>\n           <div class="spanCenter">\n                     <span *ngIf=\'event.estado==0\' class=\'estadoReservas\' style="color: #cabf2b;">\n        PENDIENTE CONFIRMAR\n        </span>\n        <span *ngIf=\'event.estado==1\'  class=\'estadoReservas\' style="color:#3ca1ff ">\n        CONFIRMADA\n        </span>\n        <span *ngIf=\'event.estado==3\'  class=\'estadoReservas\' style="color: #77dd77;">\n        COMPLETA\n        </span>\n        <span *ngIf=\'event.estado==2\'  class=\'estadoReservas\' style="color: #ffb34c">\n        REPROGRA. - PENDIENTE</span>\n        <span *ngIf=\'event.estado==4\' class=\'estadoReservas\' style="color: #ff1e1e;">\n        CANCELADA\n        </span>\n\n           </div>\n        </div>\n        <div style="display: inline-block;vertical-align: middle;width: calc(100% - 105px);">\n        <span class="nombreCliente">\n        {{event.title}}\n        </span>  \n\n        <span  style="font-size: 15px;\n        color: #444; ">\n        {{event.servicio}} \n      </span>\n <span style="display: block;    color: #444;">{{event.startTime|date: \'h:mm a\'}} - {{event.endTime|date: \'h:mm a\'}}</span>\n  \n      \n        </div>\n       \n        </div>\n\n    </div>\n    </div>\n\n\n  \n\n<!--                 <ion-item *ngFor="let event of selectedDate?.events" (click)="eventSelected(event)">\n                        <span *ngIf="!event.allDay" class="monthview-eventdetail-timecolumn">{{event.startTime|date: \'HH:mm\'}}\n                            -\n                            {{event.endTime|date: \'HH:mm\'}}\n                        </span>\n                    <span *ngIf="event.allDay" class="monthview-eventdetail-timecolumn">All day</span>\n                    <span class="event-detail">  |  {{event.title}}</span>\n                </ion-item>\n                <ion-item *ngIf="selectedDate?.events.length==0">\n                    <div class="no-events-label">{{noEventsLabel}}</div>\n                </ion-item> -->\n            </ion-list>\n        </ng-template>\n\n\n\n\n\n<ng-template #template4 let-displayEvent="displayEvent" >\n\n\n            <div class="calendar-event-inner " style="text-align: left !important">\n\n\n            <div class="txtDots">{{displayEvent.event.startTime|date: \'h:mm\'}} - {{displayEvent.event.endString|date: \'h:mm\'}}</div>\n\n            <div class="txtDots">\n             <span>{{displayEvent.event.title}}</span>\n             -<span>{{displayEvent.event.servicio}} </span>\n            </div>\n          </div>\n\n\n\n        </ng-template>\n\n\n                <ng-template #template5 let-tm="tm" let-hourParts="hourParts" let-eventTemplate="eventTemplate">\n            <div [ngClass]="{\'calendar-event-wrap\': tm.events}" *ngIf="tm.events">\n                <div *ngFor="let displayEvent of tm.events" class="calendar-event" tappable\n                     (click)="goDetalle(displayEvent.event)"\n                     [ngStyle]="{top: (37*displayEvent.startOffset/hourParts)+\'px\',left: 100/displayEvent.overlapNumber*displayEvent.position+\'%\', width: 100/displayEvent.overlapNumber+\'%\', height: 37*(displayEvent.endIndex -displayEvent.startIndex - (displayEvent.endOffset + displayEvent.startOffset)/hourParts)+\'px\'}" \n                      [ngClass]="{\'citaE3\':displayEvent.event.estado == 3, \'citaE4\':displayEvent.event.estado == 4,\'citaE2\': displayEvent.event.estado == 2, \'citaE1\':displayEvent.event.estado == 1, \'citaE0\':displayEvent.event.estado == 0}" style=\'    width: 100% !important;\'>\n                    <ng-template [ngTemplateOutlet]="eventTemplate"\n                                 [ngTemplateOutletContext]="{displayEvent:displayEvent}">\n                    </ng-template>\n                </div>\n            </div>\n        </ng-template>\n\n\n  <calendar [eventSource]="eventSource"\n  [monthviewDisplayEventTemplate]="template2"\n\n  [dayviewNormalEventTemplate]="template4" \n  [dayviewNormalEventSectionTemplate]="template5" \n\n [monthviewEventDetailTemplate]="template"\n  [startingDayMonth]="calendar.startingDayWeek" \n    [startingDayWeek]="calendar.startingDayWeek" \n        [calendarMode]="calendar.mode"\n        [currentDate]="calendar.currentDate"\n        (onCurrentDateChanged)="onCurrentDateChanged($event)"\n        (onRangeChanged)="reloadSource(startTime, endTime)"\n        (onEventSelected)="goDetalle($event)"\n        (onTitleChanged)="onViewTitleChanged($event)"\n        (onTimeSelected)="onTimeSelected($event)"\n         formatHourColumn=\'h:mma\'\n        startHour="5"\n        endHour="24"\n        step="1"\n        timeInterval="30" \n        [preserveScrollPosition]="true">\n        \n    </calendar>\n\n\n\n<!--   <button ion-button secondary menuToggle>Toggle Menu</button> -->\n</ion-content>\n'/*ion-inline-end:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/pages/calendario/calendario.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _e || Object])
+    ], CalendarioPage);
+    return CalendarioPage;
+    var _a, _b, _c, _d, _e;
+}());
+
+//# sourceMappingURL=calendario.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=5.js.map
