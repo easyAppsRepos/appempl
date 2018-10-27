@@ -32837,12 +32837,20 @@ page-calendario .estadoReservas {
   white-space: normal;
 }
 
+page-calendario .alturaFix .txtDots {
+  display: inline-block !important;
+}
+
 page-calendario .citaE4sb3 {
   border-left: solid 3px #ff1e1e !important;
 }
 
 page-calendario .citaE0sb3 {
   border-left: solid 3px #f1e42e !important;
+}
+
+page-calendario .citaE77sb7 {
+  border-left: solid 3px darkgrey !important;
 }
 
 page-calendario .citaE1sb3 {
@@ -32855,6 +32863,11 @@ page-calendario .citaE2sb3 {
 
 page-calendario .citaE3sb3 {
   border-left: solid 3px #77dd77 !important;
+}
+
+page-calendario .citaE77 {
+  background: lightgray !important;
+  border-left: solid 5px darkgrey !important;
 }
 
 page-calendario .citaE0 {
@@ -33289,6 +33302,14 @@ page-login .inputT input {
   border-right: solid 2px #f3eded !important;
   padding: 7px 7px 7px 20px  !important;
   margin: 6px 0px !important;
+}
+
+page-nreserva .noLin .item-inner {
+  border: none !important;
+}
+
+page-nreservat .noLin .item-inner {
+  border: none !important;
 }
 
 page-perfil .itemActi {

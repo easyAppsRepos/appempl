@@ -4,12 +4,12 @@
         xmlns       =    "http://www.w3.org/ns/widgets"
         xmlns:gap   =    "http://phonegap.com/ns/1.0"
         versionCode =   "1">
-  <name>APP ESTILISTA</name>
+  <name>Ybstaff</name>
   <description>
-        APP ESTILISTA
+        Ybstaff
     </description>
   <author email="you@example.com" href="http://example.com.com/">
-      APP ESTILISTA
+      Ybstaff
     </author>
       <access origin="*"/>
   <content src="index.html"/>
