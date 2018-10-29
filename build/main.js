@@ -200,10 +200,9 @@ var RestProvider = /** @class */ (function () {
     };
     RestProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
     ], RestProvider);
     return RestProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=rest.js.map
@@ -236,15 +235,15 @@ var map = {
 		10
 	],
 	"../pages/calendario/calendario.module": [
-		431,
+		433,
 		9
 	],
 	"../pages/detalle-reserva/detalle-reserva.module": [
-		432,
+		431,
 		8
 	],
 	"../pages/horario/horario.module": [
-		433,
+		432,
 		7
 	],
 	"../pages/login/login.module": [
@@ -268,11 +267,11 @@ var map = {
 		2
 	],
 	"../pages/reprogramacion/reprogramacion.module": [
-		439,
+		440,
 		1
 	],
 	"../pages/sobreby/sobreby.module": [
-		440,
+		439,
 		0
 	]
 };
@@ -321,8 +320,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_calendar__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ion2_calendar__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_calendar__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ion2_calendar__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_common__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common_locales_es__ = __webpack_require__(429);
@@ -365,16 +364,16 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicModule"].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], { mode: 'ios', backButtonText: '' }, {
                     links: [
                         { loadChildren: '../pages/ayuda/ayuda.module#AyudaPageModule', name: 'AyudaPage', segment: 'ayuda', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/calendario/calendario.module#CalendarioPageModule', name: 'CalendarioPage', segment: 'calendario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/detalle-reserva/detalle-reserva.module#DetalleReservaPageModule', name: 'DetalleReservaPage', segment: 'detalle-reserva', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/horario/horario.module#HorarioPageModule', name: 'HorarioPage', segment: 'horario', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/calendario/calendario.module#CalendarioPageModule', name: 'CalendarioPage', segment: 'calendario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/modal-services/modal-services.module#ModalServicesPageModule', name: 'ModalServicesPage', segment: 'modal-services', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nreserva/nreserva.module#NreservaPageModule', name: 'NreservaPage', segment: 'nreserva', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nreservat/nreservat.module#NreservatPageModule', name: 'NreservatPage', segment: 'nreservat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/perfil/perfil.module#PerfilPageModule', name: 'PerfilPage', segment: 'perfil', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/reprogramacion/reprogramacion.module#ReprogramacionPageModule', name: 'ReprogramacionPage', segment: 'reprogramacion', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sobreby/sobreby.module#SobrebyPageModule', name: 'SobrebyPage', segment: 'sobreby', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/sobreby/sobreby.module#SobrebyPageModule', name: 'SobrebyPage', segment: 'sobreby', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/reprogramacion/reprogramacion.module#ReprogramacionPageModule', name: 'ReprogramacionPage', segment: 'reprogramacion', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
@@ -402,14 +401,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 390:
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-
-/***/ 398:
+/***/ 388:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -674,7 +666,14 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 398;
+webpackContext.id = 388;
+
+/***/ }),
+
+/***/ 395:
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ }),
 
@@ -759,7 +758,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Nav"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Nav"]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/app/app.html"*/'<ion-menu [content]="content">\n<!--   <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header> -->\n\n  <ion-content style=\'background-color: #f7f8f9;\'>\n\n    <div *ngIf=\'userDataProfile.idEmpleado\' style="    padding: 16px;background-color: #34bfa3 !important;\n    color: white">\n      \n      <img src="http://50.116.17.150:3000/{{userDataProfile?.idFoto}}" \n        onError="this.src=\'assets/imgs/usuario.png\';" style="    display: inline-block;\n    height: 50px;\n    width: 50px;\n    border-radius: 50px;\n    border: solid 2px white;\n    vertical-align: text-bottom;\n    margin-right: 9px;">\n\n    <div style="display: inline-block;">\n      <div style="margin-top: 10px;    margin-top: 10px;\n    font-size: 20px;\n    font-weight: 800;">{{userDataProfile?.nombreEmpleado}}</div>\n      <div style="margin-top: 2px;">{{userDataProfile?.nombreCentro}}</div>\n    </div>\n    </div>\n\n\n\n    <ion-list>\n      <button menuClose ion-item  class=\'btnMenu\' (click)="openPage(\'CalendarioPage\')">\n       <ion-icon name="calendar"></ion-icon> Calendario\n      </button>\n\n            <button menuClose ion-item  class=\'btnMenu\' (click)="openPage(\'HorarioPage\')">\n      <ion-icon name="timer"></ion-icon> Horario\n      </button>\n\n            <button menuClose ion-item class=\'btnMenu\'  (click)="openPage(\'PerfilPage\')">\n      <ion-icon name="contact"></ion-icon> Perfil\n      </button>\n\n            <button menuClose ion-item class=\'btnMenu\' (click)="openPage(\'AyudaPage\')">\n      <ion-icon name="help-circle"></ion-icon> Ayuda\n      </button>\n\n      <button menuClose ion-item class=\'btnMenu\' (click)="cerrarSesion()">\n        <ion-icon name="log-out"></ion-icon> Cerrar Sesion\n      </button>\n\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/app/app.html"*/'<ion-menu [content]="content">\n<!--   <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header> -->\n\n  <ion-content style=\'background-color: #f7f8f9;\'>\n\n    <div *ngIf=\'userDataProfile.idEmpleado\' style="    padding: 16px;background-color: #34bfa3 !important;\n    color: white">\n      \n      <img src="http://50.116.17.150:3000/{{userDataProfile?.idFoto}}" \n        onError="this.src=\'assets/imgs/usuario.png\';" style="    display: inline-block;\n    height: 50px;\n    width: 50px;\n    border-radius: 50px;\n    border: solid 2px white;\n    vertical-align: text-bottom;\n    margin-right: 9px;">\n\n    <div style="display: inline-block;">\n      <div style="margin-top: 10px;    margin-top: 10px;\n    font-size: 20px;\n    font-weight: 800;">{{userDataProfile?.nombreEmpleado}}</div>\n      <div style="margin-top: 2px;">{{userDataProfile?.descripcion}}</div>\n    </div>\n    </div>\n\n\n\n    <ion-list>\n      <button menuClose ion-item  class=\'btnMenu\' (click)="openPage(\'CalendarioPage\')">\n       <ion-icon name="calendar"></ion-icon> Calendario\n      </button>\n\n            <button menuClose ion-item  class=\'btnMenu\' (click)="openPage(\'HorarioPage\')">\n      <ion-icon name="timer"></ion-icon> Horario\n      </button>\n\n            <button menuClose ion-item class=\'btnMenu\'  (click)="openPage(\'PerfilPage\')">\n      <ion-icon name="contact"></ion-icon> Perfil\n      </button>\n\n            <button menuClose ion-item class=\'btnMenu\' (click)="openPage(\'AyudaPage\')">\n      <ion-icon name="help-circle"></ion-icon> Ayuda\n      </button>\n\n      <button menuClose ion-item class=\'btnMenu\' (click)="cerrarSesion()">\n        <ion-icon name="log-out"></ion-icon> Cerrar Sesion\n      </button>\n\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Events"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Events"]) === "function" && _g || Object])
     ], MyApp);
