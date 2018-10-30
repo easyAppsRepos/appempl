@@ -42,6 +42,30 @@ var RestProvider = /** @class */ (function () {
             });
         });
     };
+    RestProvider.prototype.addPush2 = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/addPush2', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.cerrarS = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/cerrarS2', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
     RestProvider.prototype.editarEmpleadoAE = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -200,9 +224,10 @@ var RestProvider = /** @class */ (function () {
     };
     RestProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], RestProvider);
     return RestProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=rest.js.map
@@ -235,7 +260,7 @@ var map = {
 		10
 	],
 	"../pages/calendario/calendario.module": [
-		433,
+		432,
 		9
 	],
 	"../pages/detalle-reserva/detalle-reserva.module": [
@@ -243,11 +268,11 @@ var map = {
 		8
 	],
 	"../pages/horario/horario.module": [
-		432,
+		434,
 		7
 	],
 	"../pages/login/login.module": [
-		434,
+		433,
 		6
 	],
 	"../pages/modal-services/modal-services.module": [
@@ -259,15 +284,15 @@ var map = {
 		4
 	],
 	"../pages/nreservat/nreservat.module": [
-		437,
+		438,
 		3
 	],
 	"../pages/perfil/perfil.module": [
-		438,
+		440,
 		2
 	],
 	"../pages/reprogramacion/reprogramacion.module": [
-		440,
+		437,
 		1
 	],
 	"../pages/sobreby/sobreby.module": [
@@ -365,15 +390,15 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/ayuda/ayuda.module#AyudaPageModule', name: 'AyudaPage', segment: 'ayuda', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/detalle-reserva/detalle-reserva.module#DetalleReservaPageModule', name: 'DetalleReservaPage', segment: 'detalle-reserva', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/horario/horario.module#HorarioPageModule', name: 'HorarioPage', segment: 'horario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/calendario/calendario.module#CalendarioPageModule', name: 'CalendarioPage', segment: 'calendario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/horario/horario.module#HorarioPageModule', name: 'HorarioPage', segment: 'horario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/modal-services/modal-services.module#ModalServicesPageModule', name: 'ModalServicesPage', segment: 'modal-services', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nreserva/nreserva.module#NreservaPageModule', name: 'NreservaPage', segment: 'nreserva', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/reprogramacion/reprogramacion.module#ReprogramacionPageModule', name: 'ReprogramacionPage', segment: 'reprogramacion', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nreservat/nreservat.module#NreservatPageModule', name: 'NreservatPage', segment: 'nreservat', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/perfil/perfil.module#PerfilPageModule', name: 'PerfilPage', segment: 'perfil', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sobreby/sobreby.module#SobrebyPageModule', name: 'SobrebyPage', segment: 'sobreby', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/reprogramacion/reprogramacion.module#ReprogramacionPageModule', name: 'ReprogramacionPage', segment: 'reprogramacion', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/perfil/perfil.module#PerfilPageModule', name: 'PerfilPage', segment: 'perfil', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
@@ -401,7 +426,14 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 388:
+/***/ 390:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 398:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -666,14 +698,7 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 388;
-
-/***/ }),
-
-/***/ 395:
-/***/ (function(module, exports) {
-
-/* (ignored) */
+webpackContext.id = 398;
 
 /***/ }),
 
@@ -741,9 +766,68 @@ var MyApp = /** @class */ (function () {
             // Here you can do any higher level native things you might need.
             _this.statusBar.styleDefault();
             _this.splashScreen.hide();
+            _this.platform.registerBackButtonAction(function () {
+                console.log('donothing');
+            });
+            //if(false){
+            if (_this.platform.is('android') || _this.platform.is('ios')) {
+                console.log('amhere1');
+                var push = PushNotification.init({
+                    "android": {
+                        "senderID": "990502902161"
+                    },
+                    "ios": {
+                        "alert": "true",
+                        "badge": "true",
+                        "sound": "true"
+                    },
+                    "windows": {}
+                });
+                push.on('registration', function (data) { return _this.registrarDevice(data); });
+                push.on('notification', function (data) {
+                    /*
+                    if(data.additionalData.tipoNoti=="2" || data.additionalData.tipoNoti==2){
+                    var ga=Number(data.additionalData.puntosGanados) * 1;
+                    var ge=Number(data.additionalData.totalExc)* 1;
+                    var gi=Number(data.additionalData.puntosActual)* 1;
+                    var idCC=Number(data.additionalData.idCC);
+                    if(idCC>0){
+                    let profileModal = this.modalCtrl.create('CongratsPage',{'idCuponCliente':idCC},{
+                    enterAnimation: 'modal-scale-up-enter',
+                    leaveAnimation: 'modal-scale-up-leave'
+                    });
+                    profileModal.present();
+                    }
+                    else{
+                    this.goAnimacion2(ga,ge,gi);
+                    }
+                     this.nav.push('OpinionesPage');
+                   }
+                   */
+                    if (data.additionalData.tipoNoti == "1" || data.additionalData.tipoNoti == 1) {
+                        var id = Number(data.additionalData.idCita);
+                        _this.nav.push('DetalleReservaPage', { idCita: id });
+                        //this.presentAlert(data.title,data.message);
+                    }
+                    console.log(data);
+                });
+                push.on('error', function (e) {
+                    console.log(e.message);
+                    console.log(e);
+                });
+            }
         });
     };
+    MyApp.prototype.registrarDevice = function (data) {
+        console.log('regsustr');
+        console.log(data);
+        this.storage.set("pushKeyAEBYST", data.registrationId);
+    };
     MyApp.prototype.cerrarSesion = function () {
+        this.apiProvider.cerrarS({ idEmpleado: this.userDataProfile.idEmpleado })
+            .then(function (data) {
+            console.log(data);
+        });
         this.userDataProfile = {};
         this.storage.set("usr_tok_byae", false);
         this.nav.setRoot('LoginPage');

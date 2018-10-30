@@ -101,11 +101,11 @@
 
 
 
-<!--  <plugin name="phonegap-plugin-push" version="1.11.1" source="npm">
-    <param name="SENDER_ID" value="187646798187" />
+  <plugin name="phonegap-plugin-push" version="1.11.1" source="npm">
+    <param name="SENDER_ID" value="990502902161" />
  
 </plugin> 
-
+<!--
 <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
 
   <plugin name="ionic-plugin-keyboard" version="2.2.1" src="https://github.com/driftyco/ionic-plugin-keyboard" />
