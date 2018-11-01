@@ -32830,6 +32830,40 @@ ion-calendar-month button.days-btn.on-selected p {
   color: white !important;
 }
 
+page-ayuda .accordion-list {
+  background: #f4f4f4;
+}
+
+page-ayuda .section {
+  background: #fff;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+page-ayuda .section-active {
+  background: #34bfa3;
+  color: #fff;
+}
+
+page-ayuda .child {
+  background: #e8e7e6;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+page-ayuda .child-item {
+  background: #f3f2f1;
+  padding: 10px;
+}
+
+page-ayuda .label {
+  margin: 0px;
+}
+
+page-ayuda .list {
+  margin-bottom: 4px;
+}
+
 page-calendario .estadoReservas {
   display: block;
   font-size: 12px;

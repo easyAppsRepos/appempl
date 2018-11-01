@@ -1,239 +1,5 @@
 webpackJsonp([11],{
 
-/***/ 106:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RestProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/*
-  Generated class for the RestProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var RestProvider = /** @class */ (function () {
-    function RestProvider(http) {
-        this.http = http;
-        this.apiUrl = 'http://50.116.17.150:3000';
-        console.log('Hello RestProvider Provider');
-    }
-    RestProvider.prototype.getEmpleadoAE = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/getEmpleadoAE', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.addPush2 = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/addPush2', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.cerrarS = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/cerrarS2', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.editarEmpleadoAE = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/editarEmpleadoAE', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.agregarBloque = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/agregarBloque', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.eliminarHE = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/eliminarHE', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.agregarHEENC = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/agregarHEENC', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.addCitaManual2 = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/addCitaManual2  ', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.guardarHorarioNC = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/guardarHorarioNC', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.getInfoEmpleadoAE = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/getInfoEmpleadoAE', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.horarioSet = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/horarioSet', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.getEventosUserNC = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/getEventosUserNC', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.doLoginApiAE = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/doLoginApiAE', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.getEmpleadoServicios = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/getEmpleadoServicios', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.cambiarServicioCitaNC = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/cambiarServicioCitaNC', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider.prototype.getDataCita = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/getDataCitaAE', data)
-                .subscribe(function (res) {
-                console.log(res);
-                resolve(res);
-            }, function (err) {
-                reject(err);
-            });
-        });
-    };
-    RestProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
-    ], RestProvider);
-    return RestProvider;
-    var _a;
-}());
-
-//# sourceMappingURL=rest.js.map
-
-/***/ }),
-
 /***/ 118:
 /***/ (function(module, exports) {
 
@@ -260,19 +26,19 @@ var map = {
 		10
 	],
 	"../pages/calendario/calendario.module": [
-		432,
+		431,
 		9
 	],
 	"../pages/detalle-reserva/detalle-reserva.module": [
-		431,
+		432,
 		8
 	],
 	"../pages/horario/horario.module": [
-		434,
+		433,
 		7
 	],
 	"../pages/login/login.module": [
-		433,
+		434,
 		6
 	],
 	"../pages/modal-services/modal-services.module": [
@@ -284,15 +50,15 @@ var map = {
 		4
 	],
 	"../pages/nreservat/nreservat.module": [
-		438,
+		437,
 		3
 	],
 	"../pages/perfil/perfil.module": [
-		440,
+		438,
 		2
 	],
 	"../pages/reprogramacion/reprogramacion.module": [
-		437,
+		440,
 		1
 	],
 	"../pages/sobreby/sobreby.module": [
@@ -348,9 +114,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_calendar__ = __webpack_require__(334);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ion2_calendar__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_ion2_calendar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_common__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common_locales_es__ = __webpack_require__(429);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_rest_rest__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_common_locales_es__ = __webpack_require__(429);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_rest_rest__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -373,7 +140,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-Object(__WEBPACK_IMPORTED_MODULE_12__angular_common__["j" /* registerLocaleData */])(__WEBPACK_IMPORTED_MODULE_13__angular_common_locales_es__["a" /* default */]);
+
+Object(__WEBPACK_IMPORTED_MODULE_13__angular_common__["j" /* registerLocaleData */])(__WEBPACK_IMPORTED_MODULE_14__angular_common_locales_es__["a" /* default */]);
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -389,20 +157,21 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicModule"].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], { mode: 'ios', backButtonText: '' }, {
                     links: [
                         { loadChildren: '../pages/ayuda/ayuda.module#AyudaPageModule', name: 'AyudaPage', segment: 'ayuda', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/detalle-reserva/detalle-reserva.module#DetalleReservaPageModule', name: 'DetalleReservaPage', segment: 'detalle-reserva', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/calendario/calendario.module#CalendarioPageModule', name: 'CalendarioPage', segment: 'calendario', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/detalle-reserva/detalle-reserva.module#DetalleReservaPageModule', name: 'DetalleReservaPage', segment: 'detalle-reserva', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/horario/horario.module#HorarioPageModule', name: 'HorarioPage', segment: 'horario', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/modal-services/modal-services.module#ModalServicesPageModule', name: 'ModalServicesPage', segment: 'modal-services', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nreserva/nreserva.module#NreservaPageModule', name: 'NreservaPage', segment: 'nreserva', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/reprogramacion/reprogramacion.module#ReprogramacionPageModule', name: 'ReprogramacionPage', segment: 'reprogramacion', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nreservat/nreservat.module#NreservatPageModule', name: 'NreservatPage', segment: 'nreservat', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/perfil/perfil.module#PerfilPageModule', name: 'PerfilPage', segment: 'perfil', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sobreby/sobreby.module#SobrebyPageModule', name: 'SobrebyPage', segment: 'sobreby', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/perfil/perfil.module#PerfilPageModule', name: 'PerfilPage', segment: 'perfil', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/reprogramacion/reprogramacion.module#ReprogramacionPageModule', name: 'ReprogramacionPage', segment: 'reprogramacion', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_10_ionic2_calendar__["a" /* NgCalendarModule */], __WEBPACK_IMPORTED_MODULE_11_ion2_calendar__["CalendarModule"],
+                __WEBPACK_IMPORTED_MODULE_12__angular_http__["b" /* HttpModule */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicApp"]],
             entryComponents: [
@@ -415,7 +184,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicErrorHandler"] },
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["LOCALE_ID"], useValue: 'es-pa' },
-                __WEBPACK_IMPORTED_MODULE_14__providers_rest_rest__["a" /* RestProvider */]
+                __WEBPACK_IMPORTED_MODULE_15__providers_rest_rest__["a" /* RestProvider */]
             ]
         })
     ], AppModule);
@@ -712,7 +481,7 @@ webpackContext.id = 398;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -864,7 +633,7 @@ var MyApp = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1088,6 +857,239 @@ var ListPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=list.js.map
+
+/***/ }),
+
+/***/ 55:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RestProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/*
+  Generated class for the RestProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var RestProvider = /** @class */ (function () {
+    function RestProvider(http) {
+        this.http = http;
+        this.apiUrl = 'http://50.116.17.150:3000';
+        console.log('Hello RestProvider Provider');
+    }
+    RestProvider.prototype.getEmpleadoAE = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/getEmpleadoAE', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.addPush2 = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/addPush2', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.cerrarS = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/cerrarS2', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.editarEmpleadoAE = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/editarEmpleadoAE', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.agregarBloque = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/agregarBloque', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.eliminarHE = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/eliminarHE', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.agregarHEENC = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/agregarHEENC', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.addCitaManual2 = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/addCitaManual2  ', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.guardarHorarioNC = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/guardarHorarioNC', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.getInfoEmpleadoAE = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/getInfoEmpleadoAE', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.horarioSet = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/horarioSet', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.getEventosUserNC = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/getEventosUserNC', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.doLoginApiAE = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/doLoginApiAE', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.getEmpleadoServicios = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/getEmpleadoServicios', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.cambiarServicioCitaNC = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/cambiarServicioCitaNC', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.getDataCita = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/getDataCitaAE', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], RestProvider);
+    return RestProvider;
+}());
+
+//# sourceMappingURL=rest.js.map
 
 /***/ })
 
