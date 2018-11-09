@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 440:
+/***/ 439:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReprogramacionPageModule", function() { return ReprogramacionPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SobrebyPageModule", function() { return SobrebyPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reprogramacion__ = __webpack_require__(451);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sobreby__ = __webpack_require__(451);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ReprogramacionPageModule = /** @class */ (function () {
-    function ReprogramacionPageModule() {
+var SobrebyPageModule = /** @class */ (function () {
+    function SobrebyPageModule() {
     }
-    ReprogramacionPageModule = __decorate([
+    SobrebyPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__reprogramacion__["a" /* ReprogramacionPage */],
+                __WEBPACK_IMPORTED_MODULE_2__sobreby__["a" /* SobrebyPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__reprogramacion__["a" /* ReprogramacionPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__sobreby__["a" /* SobrebyPage */]),
             ],
         })
-    ], ReprogramacionPageModule);
-    return ReprogramacionPageModule;
+    ], SobrebyPageModule);
+    return SobrebyPageModule;
 }());
 
-//# sourceMappingURL=reprogramacion.module.js.map
+//# sourceMappingURL=sobreby.module.js.map
 
 /***/ }),
 
@@ -42,7 +42,7 @@ var ReprogramacionPageModule = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReprogramacionPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SobrebyPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,29 +57,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the ReprogramacionPage page.
+ * Generated class for the SobrebyPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ReprogramacionPage = /** @class */ (function () {
-    function ReprogramacionPage(navCtrl, navParams) {
+var SobrebyPage = /** @class */ (function () {
+    function SobrebyPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    ReprogramacionPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ReprogramacionPage');
+    SobrebyPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SobrebyPage');
     };
-    ReprogramacionPage = __decorate([
+    SobrebyPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-reprogramacion',template:/*ion-inline-start:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/pages/reprogramacion/reprogramacion.html"*/'<!--\n  Generated template for the ReprogramacionPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>reprogramacion</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/pages/reprogramacion/reprogramacion.html"*/,
+            selector: 'page-sobreby',template:/*ion-inline-start:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/pages/sobreby/sobreby.html"*/'<!--\n  Generated template for the SobrebyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>sobreby</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/pages/sobreby/sobreby.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]])
-    ], ReprogramacionPage);
-    return ReprogramacionPage;
+    ], SobrebyPage);
+    return SobrebyPage;
 }());
 
-//# sourceMappingURL=reprogramacion.js.map
+//# sourceMappingURL=sobreby.js.map
 
 /***/ })
 

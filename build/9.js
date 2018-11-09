@@ -1,15 +1,14 @@
 webpackJsonp([9],{
 
-/***/ 431:
+/***/ 433:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalendarioPageModule", function() { return CalendarioPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DetalleReservaPageModule", function() { return DetalleReservaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calendario__ = __webpack_require__(442);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic2_calendar__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__detalle_reserva__ = __webpack_require__(445);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,33 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var CalendarioPageModule = /** @class */ (function () {
-    function CalendarioPageModule() {
+var DetalleReservaPageModule = /** @class */ (function () {
+    function DetalleReservaPageModule() {
     }
-    CalendarioPageModule = __decorate([
+    DetalleReservaPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__calendario__["a" /* CalendarioPage */],
+                __WEBPACK_IMPORTED_MODULE_2__detalle_reserva__["a" /* DetalleReservaPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__calendario__["a" /* CalendarioPage */]),
-                __WEBPACK_IMPORTED_MODULE_3_ionic2_calendar__["a" /* NgCalendarModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__detalle_reserva__["a" /* DetalleReservaPage */]),
             ],
         })
-    ], CalendarioPageModule);
-    return CalendarioPageModule;
+    ], DetalleReservaPageModule);
+    return DetalleReservaPageModule;
 }());
 
-//# sourceMappingURL=calendario.module.js.map
+//# sourceMappingURL=detalle-reserva.module.js.map
 
 /***/ }),
 
-/***/ 442:
+/***/ 445:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarioPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DetalleReservaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__ = __webpack_require__(55);
@@ -67,288 +64,450 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+/*
+import {CalendarModal,CalendarModalOptions,} from 'ion2-calendar';
+
+import {CalendarComponentOptions} from 'ion2-calendar';
+
+import * as moment from 'moment';
+*/
 /**
- * Generated class for the CalendarioPage page.
+ * Generated class for the DetalleReservaPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var CalendarioPage = /** @class */ (function () {
-    function CalendarioPage(navCtrl, cdr, restProvider, loadingCtrl, storage, actionSheetCtrl, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.cdr = cdr;
-        this.restProvider = restProvider;
-        this.loadingCtrl = loadingCtrl;
-        this.storage = storage;
-        this.actionSheetCtrl = actionSheetCtrl;
+var DetalleReservaPage = /** @class */ (function () {
+    function DetalleReservaPage(alertCtrl, navCtrl, navParams, modalCtrl, apiProvider, loadingCtrl, events, zone, storage) {
         this.alertCtrl = alertCtrl;
-        this.dataUser = {};
-        this.calendar = {
-            locale: 'es-MX',
-            startingDayWeek: '1',
-            mode: 'day',
-            formatMonthTitle: 'LLLL',
-            formatDayTitle: 'LLL d',
-            currentDate: new Date(),
-            dateFormatter: {
-                formatMonthViewDay: function (date) {
-                    return date.getDate().toString();
-                },
-                formatMonthViewDayHeader: function (date) {
-                    return 'LLL';
-                },
-                formatMonthViewTitle: function (date) {
-                    return 'testMT';
-                },
-                formatWeekViewDayHeader: function (date) {
-                    return 'MonWH';
-                },
-                formatWeekViewTitle: function (date) {
-                    return 'testWT';
-                },
-                formatWeekViewHourColumn: function (date) {
-                    return 'testWH';
-                },
-                formatDayViewHourColumn: function (date) {
-                    return 'testDH';
-                },
-                formatDayViewTitle: function (date) {
-                    return 'testDT';
-                }
-            }
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.modalCtrl = modalCtrl;
+        this.apiProvider = apiProvider;
+        this.loadingCtrl = loadingCtrl;
+        this.events = events;
+        this.zone = zone;
+        this.storage = storage;
+        this.date = new Date();
+        this.options = {
+            from: Date.now(),
+            defaultDate: this.date,
+            weekdays: ['D', 'L', 'M', 'K', 'J', 'V', 'S'],
+            weekStart: 1,
+            monthPickerFormat: ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'],
         };
-        this.markDisabled = function (date) {
-            var current = new Date();
-            current.setHours(0, 0, 0);
-            return date < current;
-        };
+        this.botonReprogramar = false;
+        this.horario = [];
+        this.dataCentro = {};
+        this.diaCerrado = false;
+        this.edicionFecha = false;
+        this.minH = '00:00';
+        this.maxH = '00:00';
     }
-    CalendarioPage.prototype.ionViewDidEnter = function () {
+    DetalleReservaPage.prototype.ionViewDidEnter = function () {
+        console.log('ionViewDidLoad DetalleReservaPage');
+        this.getDataCita(this.navParams.get('idCita'));
+    };
+    DetalleReservaPage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.storage.get('usr_tok_byae').then(function (result) {
             if (result) {
-                _this.dataUser = result;
-                _this.loadEvents();
-                console.log(_this.dataUser);
+                _this.idEmpleado = result.idEmpleado;
+                console.log(_this.idEmpleado);
             }
             else {
                 console.log('error-nologin');
             }
         });
-        this.storage.get('usr_alrt_byae').then(function (result) {
-            if (result) {
-                _this.presentAlert('Nota Importante');
-                _this.storage.set("usr_alrt_byae", false);
+    };
+    DetalleReservaPage.prototype.getEstado = function (idEstado) {
+        var estado = '';
+        idEstado == 1 ? estado = "Pendiente confirmar" :
+            idEstado == 5 ? estado = "Reprogramada" :
+                idEstado == 2 ? estado = "Confimada" :
+                    idEstado == 3 ? estado = "Completada" :
+                        idEstado == 4 ? estado = "Cancelada" : estado = "";
+        return estado;
+    };
+    DetalleReservaPage.prototype.getFechaFormat = function (eee) {
+        /*
+          if(eee){
+          
+            moment.locale('es');
+          return moment(eee, 'YYYY-MM-DD').format('LL');
+          }
+          else{
+          return ' - ';
+          }
+          */
+        var splitDate = eee.split('-');
+        return new Date(splitDate[0], (parseInt(splitDate[1]) - 1), splitDate[2]);
+    };
+    DetalleReservaPage.prototype.showConfirm = function (estado, cita, accionName) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Confirmar acción',
+            message: 'Esta seguro que desea ' + accionName + ' esta reserva?',
+            buttons: [
+                {
+                    text: 'cancelar',
+                    handler: function () {
+                        console.log('Disagree clicked');
+                    }
+                },
+                {
+                    text: 'continuar',
+                    handler: function () {
+                        console.log('Agree clicked');
+                        _this.cambiarEstadoS(estado, cita);
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    DetalleReservaPage.prototype.showConfirm2 = function (estado, idCita, accionName) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Confirmar acción',
+            message: 'Esta seguro que desea ' + accionName + ' esta reserva?',
+            buttons: [
+                {
+                    text: 'cancelar',
+                    handler: function () {
+                        console.log('Disagree clicked');
+                    }
+                },
+                {
+                    text: 'continuar',
+                    handler: function () {
+                        console.log('Agree clicked');
+                        _this.cambiarEstadoAll(estado, idCita);
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    DetalleReservaPage.prototype.getMinH = function (dia) {
+        var horarioFix = '00:00';
+        if (this.horario.find(function (x) { return x.diaSemana === dia; })) {
+            this.diaCerrado = false;
+            horarioFix = this.horario.find(function (x) { return x.diaSemana === dia; }).horaAbrir;
+        }
+        return horarioFix;
+    };
+    DetalleReservaPage.prototype.cambiarEstadoAll = function (estado, cita) {
+        var _this = this;
+        var datE = { estado: estado,
+            idCita: cita };
+        var loading = this.loadingCtrl.create({ content: "Cargando...", cssClass: "my-loading" });
+        loading.present();
+        this.apiProvider.cambiarServicioCitaNCREPRO(datE)
+            .then(function (data) {
+            console.log(data);
+            if (data) {
+                _this.getDataCita(cita);
+            }
+            else {
+                console.log('Ha ocurrido un error');
+            }
+            loading.dismiss();
+        });
+    };
+    DetalleReservaPage.prototype.cambiarEstadoS = function (estado, cita) {
+        var _this = this;
+        var datE = { estado: estado,
+            idServicioCita: cita.idServicioCita,
+            idCita: cita.idCita };
+        var loading = this.loadingCtrl.create({ content: "Cargando...", cssClass: "my-loading" });
+        loading.present();
+        this.apiProvider.cambiarServicioCitaNC(datE)
+            .then(function (data) {
+            console.log(data);
+            if (data) {
+                _this.getDataCita(_this.dataCita.idCita);
+            }
+            else {
+                console.log('Ha ocurrido un error');
+            }
+            loading.dismiss();
+        });
+    };
+    DetalleReservaPage.prototype.getMaxH = function (dia) {
+        var horarioFix = '00:00';
+        if (this.horario.find(function (x) { return x.diaSemana === dia; })) {
+            horarioFix = this.horario.find(function (x) { return x.diaSemana === dia; }).horaCerrar;
+        }
+        return horarioFix;
+    };
+    DetalleReservaPage.prototype.onChange = function ($event) {
+        var d = new Date($event);
+        var n = d.getDay();
+        console.log(n);
+        console.log($event);
+        // this.fechaSeleccionada = $event;
+        this.horaSeleccionada = '';
+        if (this.horario.find(function (x) { return x.diaSemana === n; })) {
+            console.log(this.horario.find(function (x) { return x.diaSemana === n; }));
+            this.maxH = this.getMaxH(n);
+            this.minH = this.getMinH(n);
+        }
+        else {
+            this.diaCerrado = true;
+        }
+    };
+    DetalleReservaPage.prototype.openCalendar = function () {
+        var options = {
+            title: 'BASIC',
+        };
+        var myCalendar = this.modalCtrl.create(CalendarModal, {
+            options: options
+        });
+        myCalendar.present();
+        myCalendar.onDidDismiss(function (date, type) {
+            console.log(date);
+        });
+    };
+    DetalleReservaPage.prototype.getDattts = function (item, t) {
+        var dateReturn;
+        if (t == 1) {
+            dateReturn = new Date(item.y, item.m - 1, item.d, item.h, item.min);
+        }
+        if (t == 2) {
+            dateReturn = new Date(item.y, item.m - 1, item.d, item.h2, item.min2);
+        }
+        return dateReturn;
+    };
+    DetalleReservaPage.prototype.getDataCita = function (idCita) {
+        var _this = this;
+        var loading = this.loadingCtrl.create({ content: "Cargando...", cssClass: "my-loading" });
+        loading.present();
+        var dataE = { idCita: idCita };
+        console.log(dataE);
+        this.apiProvider.getDataCita(dataE)
+            .then(function (data) {
+            console.log(data);
+            if (data) {
+                _this.zone.run(function () {
+                    _this.dataCita = data['cita'][0] || [];
+                    _this.horaSeleccionada = _this.dataCita.horaInicio;
+                    _this.horaFinalizacion = _this.dataCita.horaFinalEsperado;
+                    _this.fechaCalendario = _this.dataCita.horaInicio;
+                    _this.servicios = data['servicios'] || [];
+                    var numEm = _this.servicios.filter(function (item) {
+                        return _this.idEmpleado !== item.idEmpleado;
+                    }).length;
+                    if (numEm > 0) {
+                        console.log('varios');
+                        _this.botonReprogramar = false;
+                    }
+                    else {
+                        console.log('uno');
+                        _this.botonReprogramar = true;
+                    }
+                    _this.horario = data['horario'];
+                });
+            }
+            else {
+                console.log('Ha ocurrido un error');
+            }
+            loading.dismiss();
+        });
+    };
+    DetalleReservaPage.prototype.comoLlegar = function () {
+        console.log(this.dataCentro.latitud);
+        launchnavigator.navigate([this.dataCita.latitud, this.dataCita.longitud]);
+    };
+    DetalleReservaPage.prototype.getPrecioDescuento = function (precio) {
+        var retorno = 0;
+        if (this.dataCita.descuento) {
+            var descuento = this.dataCita.descuento;
+            var precioN = precio;
+            retorno = precioN - (precioN * (descuento / 100));
+        }
+        else {
+            retorno = precio;
+        }
+        return retorno.toFixed(2);
+    };
+    DetalleReservaPage.prototype.llamar = function () {
+        if (this.dataCita.telefono) {
+            var num = this.dataCita.telefono;
+            window.plugins.CallNumber.callNumber(function (suc) { console.log(suc); }, function (err) { console.log(err); }, num, true);
+        }
+    };
+    DetalleReservaPage.prototype.alertaAcep = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Confirmacion exitosa',
+            subTitle: 'Tu reserva ha sido confirmada',
+            buttons: ['Cerrar']
+        });
+        alert.present();
+    };
+    DetalleReservaPage.prototype.aceptarReprogramacion = function () {
+        var _this = this;
+        var loading = this.loadingCtrl.create({ content: "Cargando ..." });
+        loading.present();
+        this.apiProvider.aceptarReprogramacion({ idCita: this.dataCita.idCita })
+            .then(function (data) {
+            console.log(data);
+            loading.dismissAll();
+            if (data.affectedRows > 0) {
+                _this.alertaAcep();
+                _this.getDataCita(_this.dataCita.idCita);
+                _this.edicionFecha = false;
+            }
+            else {
+                alert('Ha ocurrido un error');
+            }
+        });
+        console.log('aceptarReprogramacion');
+        console.log(this.dataCita);
+    };
+    DetalleReservaPage.prototype.alertaRepro = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Reprogramacion exitosa',
+            subTitle: 'La reservacion fue reprogramada, te notificaremos cuando sea aceptada',
+            buttons: ['Cerrar']
+        });
+        alert.present();
+    };
+    DetalleReservaPage.prototype.guardarReprogramacion = function () {
+        var _this = this;
+        var loading = this.loadingCtrl.create({ content: "Cargando ..." });
+        loading.present();
+        var horaNueva = '';
+        var finaliza = '';
+        if (isNaN(Date.parse(this.horaSeleccionada))) {
+            horaNueva = this.fechaCalendario + ' ' + this.horaSeleccionada + ':00';
+        }
+        else {
+            horaNueva = this.horaSeleccionada.split('T')[0] + ' ' + (this.horaSeleccionada.split('T')[1]).substring(0, 7);
+        }
+        finaliza = this.horaFinalizacion.split('T')[0] + ' ' + (this.horaFinalizacion.split('T')[1]).substring(0, 7);
+        //console.log(this.horaFinalizacion);
+        // console.log(this.horaSeleccionada);
+        //console.log(this.fechaCalendario);
+        var dataE = { idCita: this.dataCita.idCita,
+            horaInicio: horaNueva,
+            horaFinalEsperado: finaliza
+        };
+        console.log(dataE);
+        this.apiProvider.reprogramarCita(dataE)
+            .then(function (data) {
+            loading.dismissAll();
+            console.log(data);
+            if (data.affectedRows > 0) {
+                _this.alertaRepro();
+                _this.getDataCita(_this.dataCita.idCita);
+                _this.edicionFecha = false;
+            }
+            else {
+                alert('Ha ocurrido un error');
             }
         });
     };
-    CalendarioPage.prototype.previousMonth = function () {
-        console.log(this.calendar.currentDate);
-        if (this.calendar.mode == "month") {
-            var ff = new Date(this.calendar.currentDate.setMonth(this.calendar.currentDate.getMonth() - 1));
-            this.calendar.currentDate = ff;
-        }
-        if (this.calendar.mode == "day") {
-            var gg = new Date(this.calendar.currentDate.setDate(this.calendar.currentDate.getDate() - 1));
-            this.calendar.currentDate = gg;
-        }
+    DetalleReservaPage.prototype.reprogramarCita = function () {
+        var _this = this;
+        this.apiProvider.addProductoz(this.servicios)
+            .then(function (data) {
+            _this.goReserva(_this.servicios[0].idCategoria);
+        });
     };
-    CalendarioPage.prototype.nextMonth = function () {
-        if (this.calendar.mode == "month") {
-            var ff = new Date(this.calendar.currentDate.setMonth(this.calendar.currentDate.getMonth() + 1));
-            this.calendar.currentDate = ff;
-        }
-        if (this.calendar.mode == "day") {
-            var gg = new Date(this.calendar.currentDate.setDate(this.calendar.currentDate.getDate() + 1));
-            this.calendar.currentDate = gg;
-        }
+    //idcen idcat
+    DetalleReservaPage.prototype.goReserva = function (categoria) {
+        //servicios: this.arraySelected
+        var dataE = { 'servicios': [], 'idCita': this.dataCita.idCita, 'idCentro': this.dataCita.idCentro, centro: this.dataCentro, 'cupon': this.dataCita.idCuponCliente, idCategoria: categoria, reprogra: true };
+        console.log(dataE);
+        this.navCtrl.push('ReservaPage', dataE);
+        // this.navCtrl.push('ReservaPage');
     };
-    CalendarioPage.prototype.presentAlert = function (titulo) {
+    DetalleReservaPage.prototype.reprogramarCita2 = function () {
+        console.log('reprogramarCita');
+        console.log(this.dataCita);
+        this.edicionFecha = true;
+    };
+    DetalleReservaPage.prototype.cancelarEdicion = function () {
+        this.horaSeleccionada = this.dataCita.horaInicio;
+        this.horaFinalizacion = this.dataCita.horaFinalEsperado;
+        this.fechaCalendario = this.dataCita.horaInicio;
+        this.edicionFecha = false;
+    };
+    DetalleReservaPage.prototype.cancelarCita = function () {
         var _this = this;
         var alert = this.alertCtrl.create({
-            title: titulo,
-            subTitle: 'Por favor crea las reservas que tengas por otros medios en tu agenda para mostrar tu disponibilidad real y  evitar conflictos de tiempo con las reservas en línea.',
+            title: 'Cancelar Reserva',
+            message: 'Seguro que deseas cancelar esta reserva?',
             buttons: [
                 {
-                    text: 'Cerrar',
+                    text: 'No',
                     role: 'cancel',
                     handler: function () {
                         console.log('Cancel clicked');
                     }
                 },
                 {
-                    text: 'Crear Reserva',
+                    text: 'Si',
                     handler: function () {
-                        _this.navCtrl.push('NreservaPage');
+                        var dataE = { idCita: _this.dataCita.idCita };
+                        console.log(dataE);
+                        _this.apiProvider.cancelarCita(dataE)
+                            .then(function (data) {
+                            console.log(data);
+                            if (data) {
+                                console.log('borrada');
+                                _this.navCtrl.pop();
+                            }
+                            else {
+                                console.log('Ha ocurrido un error');
+                            }
+                        });
                     }
                 }
             ]
         });
         alert.present();
     };
-    CalendarioPage.prototype.loadEvents = function () {
-        // this.eventSource = this.createRandomEvents();
-        var _this = this;
-        var loading = this.loadingCtrl.create({ content: "Obteniendo Reservas..." });
-        loading.present();
-        this.restProvider.getEventosUserNC({ idEmpleado: this.dataUser.idEmpleado })
-            .then(function (data) {
-            _this.eventSource = data.map(function (item) {
-                var arrayTemp = item;
-                if (item.idReservaManual) {
-                    arrayTemp.title = item.detalle;
-                    var date1 = new Date(item.y, item.m - 1, item.d, item.h, item.min);
-                    var date2 = new Date(item.y, item.m - 1, item.d, item.h2, (item.min2 - 2));
-                    var date22 = new Date(item.y, item.m - 1, item.d, item.h2, (item.min2));
-                    arrayTemp.startTime = date1;
-                    arrayTemp.endTime = date2;
-                    arrayTemp.endString = date22;
-                    arrayTemp.allDay = false;
-                    arrayTemp.servicio = ' ';
-                    arrayTemp.estado = 77;
-                    return arrayTemp;
-                }
-                else {
-                    arrayTemp.title = item.nombreCliente;
-                    var date1 = new Date(item.y, item.m - 1, item.d, item.h, item.min);
-                    var date2 = new Date(item.y, item.m - 1, item.d, item.h2, (item.min2 - 2));
-                    var date22 = new Date(item.y, item.m - 1, item.d, item.h2, (item.min2));
-                    arrayTemp.startTime = date1;
-                    arrayTemp.endTime = date2;
-                    arrayTemp.endString = date22;
-                    arrayTemp.allDay = false;
-                    arrayTemp.servicio = item.nombreServicio;
-                    //console.log(arrayTemp);
-                    return arrayTemp;
-                }
-            });
-            loading.dismiss();
+    DetalleReservaPage.prototype.getMinutosCita = function (hora) {
+        var duracionMinutos = 0;
+        this.servicios.forEach(function (item) {
+            duracionMinutos += item.duracion;
         });
+        console.log(duracionMinutos);
+        return duracionMinutos;
     };
-    CalendarioPage.prototype.addReserva = function () {
-        var _this = this;
-        var actionSheet = this.actionSheetCtrl.create({
-            title: 'Tipo de reserva',
-            buttons: [
-                {
-                    text: 'Nueva Reserva',
-                    handler: function () {
-                        //console.log('Destructive clicked');
-                        _this.navCtrl.push('NreservaPage');
-                    }
-                }, {
-                    text: 'Nueva reserva de tiempo',
-                    handler: function () {
-                        _this.navCtrl.push('NreservatPage');
-                    }
-                }, {
-                    text: 'Salir',
-                    role: 'cancel',
-                    handler: function () {
-                        console.log('Cancel clicked');
-                    }
-                }
-            ]
-        });
-        actionSheet.present();
+    DetalleReservaPage.prototype.formatTime = function (n) {
+        return n > 9 ? "" + n : "0" + n;
     };
-    CalendarioPage.prototype.goDetalle = function (event) {
-        console.log(event);
-        if (event.idReservaManual) {
-            console.log('rmanual');
+    //n > 9 ? "" + n: "0" + n;
+    DetalleReservaPage.prototype.actualizarHora = function (hora) {
+        var theAdd = new Date(hora);
+        console.log(Date.parse(theAdd));
+        if (isNaN(Date.parse(theAdd))) {
+            if (hora !== '') {
+                theAdd = new Date(this.fechaCalendario + 'T' + hora + ':00Z');
+                theAdd.setMinutes(theAdd.getMinutes() + this.getMinutosCita());
+                this.horaFinalizacion = new Date(theAdd).toISOString();
+            }
         }
         else {
-            this.navCtrl.push('DetalleReservaPage', { idCita: event.idCita });
+            console.log(theAdd);
+            theAdd.setMinutes(theAdd.getMinutes() + this.getMinutosCita());
+            this.horaFinalizacion = theAdd.toISOString();
         }
     };
-    CalendarioPage.prototype.showItems = function (item) {
-        console.log(item);
-        //return item.filter(e=>e.estado == 0).length;
-    };
-    CalendarioPage.prototype.onViewTitleChanged = function (title) {
-        this.viewTitle = title;
-    };
-    CalendarioPage.prototype.onEventSelected = function (event) {
-        console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
-    };
-    CalendarioPage.prototype.changeMode = function (mode) {
-        this.calendar.mode = mode;
-    };
-    CalendarioPage.prototype.today = function () {
-        this.calendar.currentDate = new Date();
-    };
-    CalendarioPage.prototype.onTimeSelected = function (ev) {
-        console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
-            (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);
-        // this.calendar.currentDate =  ev.selectedTime;
-    };
-    CalendarioPage.prototype.onCurrentDateChanged = function (event) {
-        console.log(event);
-        this.calendar.currentDate = event;
-        var today = new Date();
-        today.setHours(0, 0, 0, 0);
-        event.setHours(0, 0, 0, 0);
-        this.isToday = today.getTime() === event.getTime();
-    };
-    CalendarioPage.prototype.createRandomEvents = function () {
-        var events = [];
-        for (var i = 0; i < 50; i += 1) {
-            var date = new Date();
-            var estado = Math.floor(Math.random() * 4) + 0;
-            var eventType = Math.floor(Math.random() * 2);
-            var startDay = Math.floor(Math.random() * 90) - 45;
-            var endDay = Math.floor(Math.random() * 2) + startDay;
-            var startTime;
-            var endTime;
-            if (false) {
-                startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
-                if (endDay === startDay) {
-                    endDay += 1;
-                }
-                endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
-                events.push({
-                    title: 'All Day - ' + i,
-                    startTime: startTime,
-                    endTime: endTime,
-                    allDay: true,
-                    servicio: 'Corte de Pelo',
-                    estado: estado,
-                    pendientes: Math.floor(Math.random() * 4) + 0
-                });
-            }
-            else {
-                var startMinute = Math.floor(Math.random() * 24 * 60);
-                var endMinute = Math.floor(Math.random() * 180) + startMinute;
-                startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
-                endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
-                events.push({
-                    title: 'Event - ' + i,
-                    startTime: startTime,
-                    endTime: endTime,
-                    allDay: false,
-                    estado: estado,
-                    servicio: 'Corte de Pelo',
-                    pendientes: Math.floor(Math.random() * 2) + 0
-                });
-            }
-        }
-        console.log(events);
-        return events;
-    };
-    CalendarioPage.prototype.onRangeChanged = function (ev) {
-        console.log('range changed: startTime: ' + ev.startTime + ', endTime: ' + ev.endTime);
-    };
-    CalendarioPage = __decorate([
+    DetalleReservaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-calendario',template:/*ion-inline-start:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/pages/calendario/calendario.html"*/'<ion-header>\n    <ion-navbar color="header">\n  <ion-buttons left>\n      <button ion-button  menuToggle>\n         <ion-icon ios="ios-menu" md="md-menu"></ion-icon>\n     </button>\n</ion-buttons>\n\n        <ion-title style=\'padding: 0px !important\'>\n           <ion-icon (click)=\'previousMonth()\' style=\'height: 39px;\n    width: 44px;\n    vertical-align: middle;\n    line-height: 33px;\' name="arrow-back"></ion-icon> \n        {{viewTitle}}\n         <ion-icon (click)=\'nextMonth()\'  style=\'height: 39px;\n    width: 44px;\n    vertical-align: middle;\n    line-height: 33px;\' name="arrow-forward"></ion-icon> \n\n      </ion-title>\n\n         <ion-buttons right>\n\n   <!--              <button class=\'bWhite \' ion-button small [ngClass]=\'{"activeBtn":calendar.mode=="month"}\' (click)="changeMode(\'month\')">\n            mes\n        </button> -->\n         <button class=\'bWhite \' ion-button small [hidden]=\'calendar.mode=="month"\' (click)="changeMode(\'month\')" >\n            mes\n        </button><button class=\'bWhite\' ion-button small [hidden]=\'calendar.mode=="day"\' (click)="changeMode(\'day\')">\n         dia\n        </button>\n       <button style="    padding-right: 0px !important;" class=\'\' ion-button small (click)="addReserva()">\n           <ion-icon name="add" style="    font-size: 27px;\n    margin-left: 8px;\n    margin-right: 8px;    font-weight: 900 !important;"></ion-icon>\n        </button>\n\n    \n\n        \n\n    </ion-buttons>\n\n\n    </ion-navbar>\n</ion-header>\n<ion-content >\n\n<!-- <div>\n     \n            <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n            <button ion-button (click)="changeMode(\'month\')">M</button>\n            <button ion-button (click)="changeMode(\'week\')">W</button>\n            <button ion-button (click)="changeMode(\'day\')">D</button>\n            <button ion-button (click)="loadEvents()">Load Events</button>\n  \n\n</div> -->\n\n<!--  \nitems en el calendario\n[monthviewDisplayEventTemplate]="template"  -->\n\n\n\n <ng-template #template2 let-view="view" let-row="row" let-col="col" >\n            {{view.dates[row*7+col].label}}\n\n<!-- <span class="badge1" *ngIf=\'showItems(view.dates[row*7+col].events) > 0\'>{{showItems(view.dates[row*7+col].events)}}</span> -->\n<span class="badge1" *ngIf=\'view.dates[row*7+col].events[0]?.pendientes > 0\'>{{view.dates[row*7+col].events[0].pendientes}}</span>\n\n        </ng-template>\n\n        \n\n       \n\n\n\n        <ng-template #template let-showEventDetail="showEventDetail" let-selectedDate="selectedDate" let-noEventsLabel="noEventsLabel">\n            <ion-list class="event-detail-container" has-bouncing="false" *ngIf="showEventDetail" overflow-scroll="false">\n\n      \n\n                    <ion-item *ngIf="selectedDate?.events.length>0" \n                      style=\'padding-left: 0px !important;color: #999;\' \n                      style=\'    padding-left: 10px;\'>\n                    <div class="no-events-label">Reservaciones</div>\n                </ion-item>\n\n              <ion-item *ngIf="selectedDate?.events.length==0" \n              style=\'padding-left: 10px !important;color: #999;\'>\n                    <div class="no-events-label">No hay reservas</div>\n                </ion-item>\n\n\n    <div class=\'cardReserva\' *ngFor="let event of selectedDate?.events" (click)=\'goDetalle(event)\'>\n <ion-icon class=\'iconR\' name="arrow-forward"></ion-icon>\n    <div>\n        <div style="display: inline-block;    width: 100%;">\n        <div  class="fechaItem" \n        [ngClass]="{\'citaE3sb3\':event.estado == 3,\'citaE4sb3\':event.estado == 4, \'citaE2sb3\': event.estado == 2, \'citaE1sb3\':event.estado == 1, \'citaE0sb3\':event.estado == 0, \n        \'citaE77sb7\':event.estado == 77}">\n            <span class="spanCenter" style="color: #444;display: block; text-transform: uppercase;">{{event.startTime|date: \'MMM\'}}  </span>\n            <span class="spanCenter" style="    color: #444;display: block;font-size: 22px;">{{event.startTime|date: \'d\'}}</span>\n           <div class="spanCenter">\n                     <span *ngIf=\'event.estado==0\' class=\'estadoReservas\' style="color: #cabf2b;">\n        PENDIENTE CONFIRMAR\n        </span>\n        <span *ngIf=\'event.estado==1\'  class=\'estadoReservas\' style="color:#3ca1ff ">\n        CONFIRMADA\n        </span>\n        <span *ngIf=\'event.estado==3\'  class=\'estadoReservas\' style="color: #77dd77;">\n        COMPLETA\n        </span>\n        <span *ngIf=\'event.estado==2\'  class=\'estadoReservas\' style="color: #ffb34c">\n        REPROGRA. - PENDIENTE</span>\n        <span *ngIf=\'event.estado==4\' class=\'estadoReservas\' style="color: #ff1e1e;">\n        CANCELADA\n        </span>\n\n      <span *ngIf=\'event.estado==77\' class=\'estadoReservas\' style="color: darkgrey;">\n        OCUPADO\n        </span>\n\n\n           </div>\n        </div>\n        <div style="display: inline-block;vertical-align: middle;width: calc(100% - 105px);">\n        <span class="nombreCliente">\n        {{event.title}}\n        </span>  \n\n        <span  style="font-size: 15px;\n        color: #444; ">\n        {{event.servicio}} \n      </span>\n <span style="display: block;    color: #444;">{{event.startTime|date: \'h:mm a\'}} - {{event.endString|date: \'h:mm a\'}}</span>\n  \n      \n        </div>\n       \n        </div>\n\n    </div>\n    </div>\n\n\n  \n\n<!--                 <ion-item *ngFor="let event of selectedDate?.events" (click)="eventSelected(event)">\n                        <span *ngIf="!event.allDay" class="monthview-eventdetail-timecolumn">{{event.startTime|date: \'HH:mm\'}}\n                            -\n                            {{event.endTime|date: \'HH:mm\'}}\n                        </span>\n                    <span *ngIf="event.allDay" class="monthview-eventdetail-timecolumn">All day</span>\n                    <span class="event-detail">  |  {{event.title}}</span>\n                </ion-item>\n                <ion-item *ngIf="selectedDate?.events.length==0">\n                    <div class="no-events-label">{{noEventsLabel}}</div>\n                </ion-item> -->\n            </ion-list>\n        </ng-template>\n\n\n\n\n\n<ng-template #template4 let-displayEvent="displayEvent" >\n\n\n            <div class="calendar-event-inner " style="text-align: left !important;white-space: nowrap;overflow: overlay;text-overflow: ellipsis;">\n            <div class="txtDots">{{displayEvent.event.startTime|date: \'h:mm\'}} - {{displayEvent.event.endString|date: \'h:mm\'}}</div>\n\n            <div class="txtDots">\n             <span>{{displayEvent.event.title}}</span>\n             -<span>{{displayEvent.event.servicio}} </span>\n            </div>\n          </div>\n\n\n\n        </ng-template>\n\n\n                <ng-template #template5 let-tm="tm" let-hourParts="hourParts" let-eventTemplate="eventTemplate">\n            <div [ngClass]="{\'calendar-event-wrap\': tm.events}" *ngIf="tm.events">\n                <div *ngFor="let displayEvent of tm.events" class="calendar-event" tappable\n                     (click)="goDetalle(displayEvent.event)"\n                     [ngStyle]="{top: (37*displayEvent.startOffset/hourParts)+\'px\',left: 100/displayEvent.overlapNumber*displayEvent.position+\'%\', width: 100/displayEvent.overlapNumber+\'%\', height: 37*(displayEvent.endIndex -displayEvent.startIndex - (displayEvent.endOffset + displayEvent.startOffset)/hourParts)+\'px\'}" \n                      [ngClass]="{\'alturaFix\': (37*(displayEvent.endIndex -displayEvent.startIndex - (displayEvent.endOffset + displayEvent.startOffset)/hourParts)) < 36, \'citaE3\':displayEvent.event.estado == 3, \'citaE4\':displayEvent.event.estado == 4,\'citaE2\': displayEvent.event.estado == 2, \'citaE1\':displayEvent.event.estado == 1, \'citaE0\':displayEvent.event.estado == 0,\'citaE77\':displayEvent.event.estado == 77}" style=\'    width: 100% !important;\'  >\n                    <ng-template [ngTemplateOutlet]="eventTemplate"\n                                 [ngTemplateOutletContext]="{displayEvent:displayEvent}">\n                    </ng-template>\n                </div>\n            </div>\n        </ng-template>\n\n<!-- (onTimeSelected)="onTimeSelected($event)" -->\n\n  <calendar [eventSource]="eventSource"\n  [monthviewDisplayEventTemplate]="template2"\n\n  [dayviewNormalEventTemplate]="template4" \n  [dayviewNormalEventSectionTemplate]="template5" \n\n [monthviewEventDetailTemplate]="template"\n  [startingDayMonth]="calendar.startingDayWeek" \n    [startingDayWeek]="calendar.startingDayWeek" \n        [calendarMode]="calendar.mode"\n        [currentDate]="calendar.currentDate"\n        [formatMonthTitle]="calendar.formatMonthTitle"\n        [formatDayTitle]="calendar.formatDayTitle"\n        (onCurrentDateChanged)="onCurrentDateChanged($event)"\n        (onRangeChanged)="reloadSource(startTime, endTime)"\n        (onEventSelected)="goDetalle($event)"\n        (onTitleChanged)="onViewTitleChanged($event)"\n     \n         formatHourColumn=\'h:mma\'\n        startHour="5"\n        endHour="24"\n        step="1"\n        timeInterval="30" \n        [preserveScrollPosition]="true">\n        \n    </calendar>\n\n\n\n<!--   <button ion-button secondary menuToggle>Toggle Menu</button> -->\n</ion-content>\n'/*ion-inline-end:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/pages/calendario/calendario.html"*/,
+            selector: 'page-detalle-reserva',template:/*ion-inline-start:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/pages/detalle-reserva/detalle-reserva.html"*/'\n<ion-header>\n\n  <ion-navbar  color="header">\n    <ion-title>Detalle de Reserva</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<div *ngIf=\'dataCita\'>\n\n\n\n	<div>\n		<div><span  class="tituloBook">Reserva No.</span> <span  class="subBook">{{dataCita?.idCita}}</span></div>\n		<div style="margin-top: 10px;">\n            <span class="tituloBook">Estado</span> \n            <span class="subBook" [ngClass]="{\'citaE3\':dataCita.estado == 3,\'citaE4\':dataCita.estado == 4, \'citaE2\': dataCita.estado == 5, \'citaE1\':dataCita.estado == 2, \'citaE0\':dataCita.estado == 1}" style="font-weight: 500;">{{getEstado(dataCita?.estado)}}</span>\n        </div>\n\n        <div style="margin-top: 10px;">\n            <span class="tituloBook">Fecha</span> \n            <span class="subBook">{{getFechaFormat(dataCita?.horaInicio.split(\'T\')[0])|date: \'longDate\'}}</span>\n        </div>\n\n        <div style="margin-top: 10px;">\n            <span class="tituloBook">Cliente</span> \n            <span class="subBook">{{dataCita?.nombreCliente}}</span>\n        </div>\n\n\n\n    <button [hidden]=\'dataCita.estado==5\' style="    margin-top: 15px;" *ngIf=\'botonReprogramar\' ion-button small  color="header" (click)=\'showConfirm2(2,dataCita.idCita,"reprogramar")\'>Solicitar reprogramacion</button>\n\n<!--         <div *ngIf=\'dataCita?.estado == 5\' >\n		<span style="    font-size: 15px;\n    color: #777;\n    display: inline-block;\n    margin-top: 12px;">Motivo de reprogramacion</span>\n		<p class="parrafoHead">{{dataCita?.comentarioEstado}}</p>\n        </div>\n -->\n<!-- 		<div style="\n    display: inline-block;    width: 100%;    margin-top: 20px;\n">\n	<img src="http://50.116.17.150:3000/{{dataCita?.idFoto}}" \n        onError="this.src=\'assets/imgs/usuario.png\';"  style="\n    display: inline-block;\n    height: 90px;\n    border-radius: 90px;\n    width: 90px !important;\n    vertical-align: top;\n">\n	<div style="\n    display: inline-block;\n    width: calc(100% - 114px);\n    margin-left:  20px;\n">\n		<span style="margin: 2px 0px 0px 0px;\n    font-size: 19px;\n    color: #333;">{{dataCita?.nombreCliente}}</span>\n		<span style="margin-top:10px" class="itemComercio">{{dataCita?.notaCita}}</span>\n		<span style="margin-top:10px" class="itemComercio"></span>\n\n\n	</div>\n	</div> -->\n\n\n\n	</div>\n\n\n<!--  <div style="    width: 100%;\n    text-align: center;\n margin-top: 20px;">\n\n	<button (click)=\'llamar()\' [disabled]="!dataCita?.telefono"  color=\'headerColor\' ion-button  style="    width: 40%;\n    margin-right: 5%;\n    border-radius: 70px;" > <img style="margin-right:10px" src="assets/imgs/telefono.png"> Llamar</button> \n\n	<button  (click)=\'comoLlegar()\' style=" border-radius: 70px;   width: 40%;\n    margin-left: 5%;"  color=\'verdeApp\' ion-button> <img style="margin-right:10px" src="assets/imgs/agregadosBlanco.png">Cómo llegar</button>\n\n\n\n</div> -->\n<!-- \n<ion-list class=\'backItem\' style=\'width: 100%;    margin-top: 23px;    margin-bottom: 23px;\n    display: table;\n    white-space: normal;    background: transparent !important; \'>\n\n\n<div [hidden]=\'diaCerrado\'>\n<ion-item style=\'     padding-top: 6px;padding-left: 0px !important;\n    padding-bottom: 10px;  border-top: solid 1px lightgray;\'>\n  <ion-label style=\'    color: #444 !important;\'>Hora de Inicio</ion-label>\n <ion-datetime (ionChange)=\'actualizarHora(horaSeleccionada)\' style=\'    color: #444 !important;\' [(ngModel)]="horaSeleccionada" displayFormat="hh:mm A"  minuteValues="0,15,30,45"  max="{{maxH}}" min="{{minH}}" [disabled]=\'!edicionFecha\'> </ion-datetime> \n\n</ion-item>\n\n<ion-item   style=\'     padding-top: 6px;padding-left: 0px !important;\n    padding-bottom: 10px;  border-top: solid 1px lightgray;\'>\n  <ion-label style=\'    color: #444 !important;\'>Finaliza aprox.</ion-label>\n <ion-datetime *ngIf=\'horaSeleccionada\' [disabled]=\'true\' style=\'    color: #444 !important;\' [(ngModel)]="horaFinalizacion" displayFormat="hh:mm A" > </ion-datetime> \n\n</ion-item>\n</div> \n\n<div style="    margin: 25px;\n    text-align: center;\n    font-size: 16px;\n    font-family: sans-serif;\n    font-weight: 400;\n    color: lightcoral;" [hidden]=\'!diaCerrado\'>\n    \n    Centro cerrado este dia\n</div>\n</ion-list>\n-->\n\n\n<!--  <div *ngIf=\'dataCita?.estado == 5\'  style="width: 100%;\n    text-align: center; display: inline-block;">\n\n   \n\n    <button  (click)=\'aceptarReprogramacion()\' style=" border-radius: 70px;   width: 40%;\n    margin-left: 5%;float:left"  color=\'verdeApp\' ion-button> Aceptar</button>\n\n    <button  (click)=\'cancelarCita()\'  color=\'headerColor\' ion-button  style="    width: 40%;\n    margin-right: 5%;\n    border-radius: 70px;float:right;" >Cancelar</button> \n\n\n</div>\n\n -->\n\n\n <!-- <div *ngIf=\'dataCita?.estado == 2 || dataCita?.estado == 1\'  style="     width: 100%;\n    text-align: center; display: inline-block;\n   ">\n\n<div  [hidden]=\'edicionFecha\'>\n     <button [disabled]=\'dataCita?.estado == 2\' (click)=\'reprogramarCita()\' style=" border-radius: 70px;   width: 40%;\n    margin-left: 5%; float:left"  color=\'verdeApp\' ion-button> Reprogramar</button>\n\n\n    <button (click)=\'cancelarCita()\'  color=\'headerColor\' ion-button  style="    width: 40%;\n    margin-right: 5%;\n    border-radius: 70px;float:right" >Cancelar</button> \n\n\n</div>\n<div [hidden]=\'!edicionFecha\'>\n    \n\n    <button [disabled]=\'horaSeleccionada==""\'  (click)=\'guardarReprogramacion()\' style=" border-radius: 70px;   width: 40%;\n    margin-left: 5%;float:left"  color=\'verdeApp\' ion-button> Guardar cambio</button> \n\n    <button (click)=\'cancelarEdicion()\'  color=\'headerColor\' ion-button  style="    width: 40%;\n    margin-right: 5%;\n    border-radius: 70px;float:right" >Deshacer</button>\n\n\n</div>\n\n\n</div> -->\n\n\n<div  *ngFor="let n of servicios">\n\n\n\n<div style="\n    width: 100%;\n    display: inline-block;\n">\n	\n\n	<div style="\n    display: inline-block;\n    width: 100%;\n    padding: 15px 0px;\n    border-top: solid 2px #ececec;\n    margin-top: 10px;\n">\n\n\n\n\n\n\n		<span style="\n      font-size: 16px;\n    color: #333;\n    font-weight: 600;\n">{{n.nombre}}</span>\n\n\n\n   <div style="font-size: 16px;font-weight: 600;    display: inline-block;\n    float: right;" >\n\n       <span *ngIf=\'n.estado==0\' class=\'estadoReservas\' style="color: #cabf2b;">\n        Pendiente Confirmar\n        </span>\n        <span *ngIf=\'n.estado==1\'  class=\'estadoReservas\' style="color:#3ca1ff ">\n        Confirmado\n        </span>\n        <span *ngIf=\'n.estado==3\'  class=\'estadoReservas\' style="color: #77dd77;">\n        Completo\n        </span>\n        <span *ngIf=\'n.estado==2\'  class=\'estadoReservas\' style="color: #ffb34c">\n        Reprogramada</span>\n        <span *ngIf=\'n.estado==4\' class=\'estadoReservas\' style="color: #ff1e1e;">\n        Cancelado\n        </span>\n\n           </div>\n\n\n	<div style="    margin-top: 7px;">\n\n\n\n\n\n        <span style="margin-right: 20px;   color: #333;\n        font-size: 15px;">\n\n        <ion-icon style=\'margin-right: 5px\' name="ios-time-outline">\n        </ion-icon>{{getDattts(n,1)|date: \'h:mm a\'}} - \n        {{getDattts(n,2)|date: \'h:mm a\'}}\n\n\n        </span>\n   \n          <span style="    color: #EC527E !important;\n    float: right;\n    min-width: 41px;\n    text-align: left;\n    font-size: 15px;\n    font-weight: 500;">${{n.precioCobrado}}\n        </span>\n           <span *ngIf=\'n.precio !== n.precioCobrado\' style="\n            font-size: 15px;\n            color: #777;\n            float: right;\n            margin-right: 15px;\n            text-decoration: line-through;">${{n.precio}}\n        </span>\n\n\n    </div>\n\n    		<div style="margin-top: 10px;">\n                <div style="    display: inline-block; color: #333;\n                font-size: 15px; margin-bottom: 5px">\n\n                <img src="http://50.116.17.150:3000/{{n.idFotoE}}" \n                onError="this.src=\'assets/imgs/usuario.png\';" style="display: inline-block;\n    height: 28px;\n    width: 28px;\n    border-radius: 20px;\n    vertical-align: text-bottom;"><span style="    margin-left: 5px;\n    display: inline-block;">{{n.nombreEmpleado}}</span>\n\n                </div>\n                <div style="display: inline-block;\n    float: right;" *ngIf=\'idEmpleado == n.idEmpleado\' >\n    			<button *ngIf=\'n.estado==0\' ion-button small  color="verderapp" (click)=\'showConfirm(1,n,"confirmar")\'>Confirmar</button>\n    			<button *ngIf=\'n.estado==1\' ion-button small color="header" \n    			(click)=\'showConfirm(3,n,"completar")\'>Completar</button>\n    	<!-- 		<button  [hidden]=\'n.estado==4  || n.estado==3\' ion-button small color="danger" \n    			(click)=\'showConfirm(4,n,"cancelar")\'>{{n.estado == 0 ? \'Declinar\' : \'Cancelar\'}}</button> -->\n\n                <button  [hidden]=\'n.estado==4  || n.estado==3\' ion-button small color="danger" \n                (click)=\'showConfirm(4,n,"cancelar")\'>Declinar</button>\n\n\n                </div>\n\n    		</div>\n	</div>\n</div>\n\n</div>\n\n\n\n\n\n\n	<div style="    margin-bottom: 15px;\n    border-top: solid 2px #ececec;\n    padding: 15px 0px;"><span style="\n    font-size: 16px;\n    color: #333;font-weight: 800; \n">Total</span> <span style="        font-weight: 800; color: #EC527E !important;\n    font-size: 16px;\n    float: right;\n    margin-right: 13px;\n    font-weight: 800;">${{dataCita?.precioEsperado}}</span></div>\n\n\n</div>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/jose/Documents/beyouApp/appEmpleado/empleadoApp/src/pages/detalle-reserva/detalle-reserva.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ActionSheetController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ActionSheetController"]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]) === "function" && _g || Object])
-    ], CalendarioPage);
-    return CalendarioPage;
-    var _a, _b, _c, _d, _e, _f, _g;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Events"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Events"]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _j || Object])
+    ], DetalleReservaPage);
+    return DetalleReservaPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
-//# sourceMappingURL=calendario.js.map
+//# sourceMappingURL=detalle-reserva.js.map
 
 /***/ })
 
