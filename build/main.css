@@ -33338,6 +33338,23 @@ page-login .inputT input {
   margin: 6px 0px !important;
 }
 
+page-modal-services .list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  -webkit-transition: 0.09s all linear;
+  transition: 0.09s all linear;
+}
+
+page-modal-services .list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+
+page-modal-services .list .item.item-accordion.ng-hide-add,
+page-modal-services .list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
 page-nreserva .noLin .item-inner {
   border: none !important;
 }

@@ -26,11 +26,11 @@ var map = {
 		0
 	],
 	"../pages/calendario/calendario.module": [
-		432,
+		433,
 		10
 	],
 	"../pages/detalle-reserva/detalle-reserva.module": [
-		433,
+		432,
 		9
 	],
 	"../pages/horario/horario.module": [
@@ -38,27 +38,27 @@ var map = {
 		8
 	],
 	"../pages/login/login.module": [
-		436,
+		435,
 		7
 	],
 	"../pages/modal-services/modal-services.module": [
-		435,
+		436,
 		6
 	],
 	"../pages/nreserva/nreserva.module": [
-		437,
+		441,
 		5
 	],
 	"../pages/nreservat/nreservat.module": [
-		438,
+		437,
 		4
 	],
 	"../pages/perfil/perfil.module": [
-		440,
+		438,
 		3
 	],
 	"../pages/reprogramacion/reprogramacion.module": [
-		441,
+		440,
 		2
 	],
 	"../pages/sobreby/sobreby.module": [
@@ -157,16 +157,16 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicModule"].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], { mode: 'ios', backButtonText: '' }, {
                     links: [
                         { loadChildren: '../pages/ayuda/ayuda.module#AyudaPageModule', name: 'AyudaPage', segment: 'ayuda', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/calendario/calendario.module#CalendarioPageModule', name: 'CalendarioPage', segment: 'calendario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/detalle-reserva/detalle-reserva.module#DetalleReservaPageModule', name: 'DetalleReservaPage', segment: 'detalle-reserva', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/calendario/calendario.module#CalendarioPageModule', name: 'CalendarioPage', segment: 'calendario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/horario/horario.module#HorarioPageModule', name: 'HorarioPage', segment: 'horario', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/modal-services/modal-services.module#ModalServicesPageModule', name: 'ModalServicesPage', segment: 'modal-services', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/nreserva/nreserva.module#NreservaPageModule', name: 'NreservaPage', segment: 'nreserva', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/modal-services/modal-services.module#ModalServicesPageModule', name: 'ModalServicesPage', segment: 'modal-services', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nreservat/nreservat.module#NreservatPageModule', name: 'NreservatPage', segment: 'nreservat', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sobreby/sobreby.module#SobrebyPageModule', name: 'SobrebyPage', segment: 'sobreby', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/perfil/perfil.module#PerfilPageModule', name: 'PerfilPage', segment: 'perfil', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/reprogramacion/reprogramacion.module#ReprogramacionPageModule', name: 'ReprogramacionPage', segment: 'reprogramacion', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/sobreby/sobreby.module#SobrebyPageModule', name: 'SobrebyPage', segment: 'sobreby', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/reprogramacion/reprogramacion.module#ReprogramacionPageModule', name: 'ReprogramacionPage', segment: 'reprogramacion', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/nreserva/nreserva.module#NreservaPageModule', name: 'NreservaPage', segment: 'nreserva', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
@@ -942,7 +942,7 @@ var RestProvider = /** @class */ (function () {
     RestProvider.prototype.editarEmpleadoAE = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.http.post(_this.apiUrl + '/editarEmpleadoAE', data)
+            _this.http.post(_this.apiUrl + '/editarEmpleadoAE2', data)
                 .subscribe(function (res) {
                 console.log(res);
                 resolve(res);
@@ -1059,10 +1059,70 @@ var RestProvider = /** @class */ (function () {
             });
         });
     };
+    RestProvider.prototype.getSubcategorias = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/getSubcategorias', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.getSubcategoriasEmpleado = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/getSubcategoriasEmpleado', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.getSubcategoriasServ = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/getSubcategoriasServ', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.getCategoriasEmpleadoC = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/getCategoriasEmpleadoC', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
     RestProvider.prototype.getEmpleadoServicios = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.post(_this.apiUrl + '/getEmpleadoServicios', data)
+                .subscribe(function (res) {
+                console.log(res);
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.cancelarRMAS = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.apiUrl + '/cancelarRMAS', data)
                 .subscribe(function (res) {
                 console.log(res);
                 resolve(res);
