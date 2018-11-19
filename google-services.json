@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "990502902161",
+    "firebase_url": "https://bystaff-221011.firebaseio.com",
+    "project_id": "bystaff-221011",
+    "storage_bucket": "bystaff-221011.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990502902161:android:4519a599232e184b",
+        "android_client_info": {
+          "package_name": "com.ionicframework.estilista"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990502902161-jv9sa24g6nq0maejmbc3lfktt9lkj34b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAykRj8nx4IPrMzCt3q5BQY8wxCjHrbxUI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
