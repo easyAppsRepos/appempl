@@ -107,7 +107,7 @@
     <param name="SENDER_ID" value="990502902161" />
  
 </plugin> 
-
+<preference name="AndroidPersistentFileLocation" value="Compatibility" />
 <!-- 
   <plugin name="phonegap-plugin-push" version="1.11.1" source="npm">
     <param name="SENDER_ID" value="990502902161" />
