@@ -102,7 +102,12 @@
 <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" />
 
 
-<preference name="android-build-tool" value="gradle" />
+<platform name="android">
+  <resource-file src="google-services.json" target="app/google-services.json" />
+</platform>
+<platform name="ios">
+  
+</platform>
   <plugin name="phonegap-plugin-push" version="2.2.3" source="npm">
     <param name="SENDER_ID" value="990502902161" />
  
