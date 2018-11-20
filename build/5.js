@@ -135,6 +135,8 @@ var NreservaPage = /** @class */ (function () {
     };
     NreservaPage.prototype.getSubCats = function () {
         var _this = this;
+        var loading = this.loadingCtrl.create();
+        loading.present();
         console.log(this.seleccion.categoria);
         this.seleccion.subcategoria = 0;
         //this.seleccion.subcategoria = undefined;
@@ -145,15 +147,19 @@ var NreservaPage = /** @class */ (function () {
             .then(function (data) {
             _this.subcats = data.subcats;
             _this.servicios = data.servicios;
+            loading.dismiss();
         }, function (err) {
             console.log('someError');
             _this.presentAlert('Ups!', 'Ha ocurrido un error inesperado');
+            loading.dismiss();
         });
     };
     NreservaPage.prototype.getSubCatsS = function () {
         var _this = this;
         console.log(this.seleccion.subcategoria);
         if (this.seleccion.subcategoria && this.seleccion.subcategoria > 0) {
+            var loading_1 = this.loadingCtrl.create();
+            loading_1.present();
             this.servicios = [];
             this.servicioSeleccionado = 0;
             var dataE = { sub: this.seleccion.subcategoria, idEmpleado: this.idEmpleado };
@@ -162,9 +168,11 @@ var NreservaPage = /** @class */ (function () {
                 //  this.subcats = data.subcats;
                 _this.servicios = data;
                 console.log(data);
+                loading_1.dismiss();
             }, function (err) {
                 console.log('someError');
                 _this.presentAlert('Ups!', 'Ha ocurrido un error inesperado');
+                loading_1.dismiss();
             });
         }
     };
