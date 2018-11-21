@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id          =     "com.ionicframework.estilista"
-        version     =    "1.5.0"
+        version     =    "1.6.0"
         xmlns       =    "http://www.w3.org/ns/widgets"
         xmlns:gap   =    "http://phonegap.com/ns/1.0"
         versionCode =   "4">
@@ -50,17 +50,15 @@
     <false />
 </edit-config>
 
-
+<edit-config file="*-Info.plist" target="NSCameraUsageDescription"  mode="overwrite">
+    <string>Para cargar imagenes de perfil</string>
+</edit-config>
 <!--     <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
  -->
   
 
-
-<config-file platform="ios" parent="NSPhotoLibraryUsageDescription">
-    <string>Para cargar imagenes</string>
-</config-file>
 
 
   <preference name="KeyboardDisplayRequiresUserAction" value="true" />
