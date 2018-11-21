@@ -58,6 +58,11 @@
   
 
 
+<config-file platform="ios" parent="NSPhotoLibraryUsageDescription">
+    <string>Para cargar imagenes</string>
+</config-file>
+
+
   <preference name="KeyboardDisplayRequiresUserAction" value="true" />
   <preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />
 
