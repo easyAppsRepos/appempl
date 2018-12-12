@@ -33355,8 +33355,27 @@ page-modal-services .list .item.item-accordion.ng-hide-remove {
   display: block !important;
 }
 
+page-nreserva .popover-ios .popover-content {
+  width: 100% !important;
+}
+
+page-nreserva .popover-content {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
 page-nreserva .noLin .item-inner {
   border: none !important;
+  min-width: 100% !important;
+}
+
+.popover-ios .popover-content {
+  width: 100% !important;
+}
+
+.popover-content {
+  width: 100% !important;
+  min-width: 100% !important;
 }
 
 page-nreservat .noLin .item-inner {
