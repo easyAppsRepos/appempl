@@ -38,11 +38,11 @@ var map = {
 		8
 	],
 	"../pages/login/login.module": [
-		435,
+		437,
 		7
 	],
 	"../pages/modal-services/modal-services.module": [
-		437,
+		435,
 		6
 	],
 	"../pages/nreserva/nreserva.module": [
@@ -50,7 +50,7 @@ var map = {
 		5
 	],
 	"../pages/nreservat/nreservat.module": [
-		440,
+		439,
 		4
 	],
 	"../pages/perfil/perfil.module": [
@@ -62,7 +62,7 @@ var map = {
 		2
 	],
 	"../pages/sobreby/sobreby.module": [
-		439,
+		440,
 		1
 	]
 };
@@ -160,12 +160,12 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/calendario/calendario.module#CalendarioPageModule', name: 'CalendarioPage', segment: 'calendario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/detalle-reserva/detalle-reserva.module#DetalleReservaPageModule', name: 'DetalleReservaPage', segment: 'detalle-reserva', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/horario/horario.module#HorarioPageModule', name: 'HorarioPage', segment: 'horario', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/nreserva/nreserva.module#NreservaPageModule', name: 'NreservaPage', segment: 'nreserva', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/modal-services/modal-services.module#ModalServicesPageModule', name: 'ModalServicesPage', segment: 'modal-services', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/nreserva/nreserva.module#NreservaPageModule', name: 'NreservaPage', segment: 'nreserva', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/perfil/perfil.module#PerfilPageModule', name: 'PerfilPage', segment: 'perfil', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sobreby/sobreby.module#SobrebyPageModule', name: 'SobrebyPage', segment: 'sobreby', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nreservat/nreservat.module#NreservatPageModule', name: 'NreservatPage', segment: 'nreservat', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sobreby/sobreby.module#SobrebyPageModule', name: 'SobrebyPage', segment: 'sobreby', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reprogramacion/reprogramacion.module#ReprogramacionPageModule', name: 'ReprogramacionPage', segment: 'reprogramacion', priority: 'low', defaultHistory: [] }
                     ]
                 }),

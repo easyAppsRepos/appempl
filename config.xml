@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id          =     "com.ionicframework.estilista"
-        version     =    "1.7.0"
+        version     =    "1.8.0"
         xmlns       =    "http://www.w3.org/ns/widgets"
         xmlns:gap   =    "http://phonegap.com/ns/1.0"
-        versionCode =   "4">
+        versionCode =   "5">
   <name>Ybstaff</name>
   <description>
         Ybstaff
